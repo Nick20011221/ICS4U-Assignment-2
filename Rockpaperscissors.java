@@ -13,7 +13,7 @@ public class Rockpaperscissors {
   static String userGuess;
   static int computerGuess;
   static String repeat;
-  
+  static int help;
   /**
   * This class lets the user play rock paper scissors with the computer.
   */
@@ -24,6 +24,7 @@ public class Rockpaperscissors {
     
   }
   
+   
   
   
   public static void generateandguess() {
@@ -38,7 +39,7 @@ public class Rockpaperscissors {
   
   
   public static void compare() {
-       
+    
        
     double randomDouble = Math.random();
     randomDouble = randomDouble * 3 + 1;
@@ -101,17 +102,18 @@ public class Rockpaperscissors {
       System.out.println("you chose scissors, the computer also chose scissors, its a draw.");
       System.out.println("would you like to play again?: ");
       repeat = userInput.nextLine();
-    } else { 
-      System.out.println("please enter rock paper or scissors: ");
-      userGuess = userInput.nextLine();
-      compare();
-    }
+    } 
     if (repeat.equals("yes")) {
       generateandguess();
     }
     if (repeat.equals("no")) {
-      System.out.println("Goodbye.");
+      help = 1;
+      System.out.println("Goodbye");
+    }
     
+    if (userGuess != ("scissors") && userGuess != ("rock") && userGuess != ("paper") && help != 1) {
+      System.out.println("please enter rock paper or scissors");
+      compare();
     }
   }
 }
